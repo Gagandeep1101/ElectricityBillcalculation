@@ -12,7 +12,7 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var txtUserId: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
-    @IBOutlet weak var btnLoginClick: UIButton!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,7 +25,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func btnLoginClick(_ sender: UIButton) {
-        if(txtUserId.text == "admin@a.com" && txtPassword.text == "ADMIN")
+        if txtUserId.text == "admin@a.com" && txtPassword.text == "admin123"
         {
              performSegue(withIdentifier: "showBillCalculationScreen", sender: self)
             print("Login Success", txtUserId.text!)
