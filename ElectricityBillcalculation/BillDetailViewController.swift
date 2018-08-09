@@ -10,6 +10,7 @@ import UIKit
 
 class BillDetailViewController: UIViewController {
     
+    @IBOutlet weak var lblTotalAmt: UILabel!
     var electricityBill: ElectricityBill?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,7 @@ private func calculateTotalBillAmount()
         totalBill = 262.5 + Double((electricityBill?.unitConsumed)!) * 2.25
     }
     print(totalBill)
+    lblTotalAmt.text = String(totalBill)
     }
     /*
     // MARK: - Navigation

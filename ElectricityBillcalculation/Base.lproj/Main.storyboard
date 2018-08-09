@@ -58,7 +58,6 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="btnLoginClick:" destination="S7m-QQ-3gQ" eventType="touchUpInside" id="xng-8h-hd1"/>
-                                    <segue destination="ZFa-zv-Hpg" kind="show" identifier="showBillCalculationScreen" id="6g2-Vz-OcK"/>
                                 </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8j8-KK-QFv">
@@ -93,6 +92,7 @@
                     <connections>
                         <outlet property="txtPassword" destination="O7I-Ol-ufH" id="uiS-Gm-5GW"/>
                         <outlet property="txtUserId" destination="1sg-TH-7BQ" id="6BW-6I-EDN"/>
+                        <segue destination="ZFa-zv-Hpg" kind="show" identifier="showBillCalculationScreen" id="w0v-pv-ftY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="una-V5-xPb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -127,7 +127,6 @@
                                 <state key="normal" title="Calculate"/>
                                 <connections>
                                     <action selector="btnBillCalculationClick:" destination="kuG-JK-EFU" eventType="touchUpInside" id="gaK-V6-3Xi"/>
-                                    <segue destination="cJd-0H-F2n" kind="show" identifier="nv" id="B4F-6Z-AZq"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GnT-Sl-U9G">
@@ -194,20 +193,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Payment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHF-sg-EGX">
-                                <rect key="frame" x="9" y="422" width="109" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Total Payment" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CWZ-wV-4Zh">
-                                <rect key="frame" x="0.0" y="444" width="375" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.73010947512494839" green="1" blue="0.97279185729560957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="f4a-R8-QU5"/>
@@ -219,6 +204,7 @@
                         <outlet property="txtCustID" destination="S6F-Cs-UhM" id="MaO-12-1LU"/>
                         <outlet property="txtCustName" destination="8ao-iA-H9p" id="ZVv-IO-g3k"/>
                         <outlet property="txtTotalUnit" destination="nWB-Lh-ptp" id="iBI-rI-gkX"/>
+                        <segue destination="cJd-0H-F2n" kind="show" identifier="nv" id="Cqn-Wx-u8I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hsy-l9-B7b" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -240,10 +226,28 @@
                                     <navigationItem title="BillDetails" id="lvN-1P-Tlo"/>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Payment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XfO-75-kCE">
+                                <rect key="frame" x="16" y="134" width="109" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ij-6c-Ul5">
+                                <rect key="frame" x="0.0" y="174" width="375" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.73010947510000002" green="1" blue="0.97279185729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.73010947510000002" green="1" blue="0.97279185729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="DCT-IQ-dX7"/>
                     </view>
+                    <connections>
+                        <outlet property="lblTotalAmt" destination="2Ij-6c-Ul5" id="vWM-5h-mA6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bLc-P0-a74" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
