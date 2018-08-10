@@ -65,9 +65,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remember Me?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJL-kq-d8R">
-                                <rect key="frame" x="84" y="211" width="120" height="21"/>
+                                <rect key="frame" x="84" y="211" width="128" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -90,6 +90,7 @@
                         <viewLayoutGuide key="safeArea" id="hBP-ZO-5P9"/>
                     </view>
                     <connections>
+                        <outlet property="switchRememberme" destination="8j8-KK-QFv" id="gaf-2V-Fyp"/>
                         <outlet property="txtPassword" destination="O7I-Ol-ufH" id="uiS-Gm-5GW"/>
                         <outlet property="txtUserId" destination="1sg-TH-7BQ" id="6BW-6I-EDN"/>
                         <segue destination="ZFa-zv-Hpg" kind="show" identifier="showBillCalculationScreen" id="w0v-pv-ftY"/>
@@ -121,14 +122,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gA-Cv-qXS">
-                                <rect key="frame" x="134" y="550" width="64" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Calculate"/>
-                                <connections>
-                                    <action selector="btnBillCalculationClick:" destination="kuG-JK-EFU" eventType="touchUpInside" id="gaK-V6-3Xi"/>
-                                </connections>
-                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GnT-Sl-U9G">
                                 <rect key="frame" x="106" y="258" width="121" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -157,6 +150,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="pickUpDate:" destination="sl7-2x-2Ek" eventType="editingDidEnd" id="aEe-EX-u9i"/>
+                                </connections>
                             </textField>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tEo-dg-O8K">
                                 <rect key="frame" x="0.0" y="73" width="375" height="44"/>
@@ -193,14 +189,30 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TotalBillAmount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ae-bk-Iix">
+                                <rect key="frame" x="100" y="571" width="175" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gA-Cv-qXS">
+                                <rect key="frame" x="155" y="600" width="64" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Calculate"/>
+                                <connections>
+                                    <action selector="btnBillCalculationClick:" destination="kuG-JK-EFU" eventType="touchUpInside" id="gaK-V6-3Xi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.73010947512494839" green="1" blue="0.97279185729560957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="f4a-R8-QU5"/>
                     </view>
                     <navigationItem key="navigationItem" id="z7d-eQ-xTa"/>
                     <connections>
+                        <outlet property="lblTotalBillAmount" destination="0Ae-bk-Iix" id="czy-8G-Vgc"/>
                         <outlet property="segGender" destination="GnT-Sl-U9G" id="g1d-69-ZAb"/>
-                        <outlet property="txtBdate" destination="nwq-ho-hI0" id="wdu-Y1-Qs3"/>
+                        <outlet property="txtBdate" destination="nwq-ho-hI0" id="mKG-uC-OD3"/>
                         <outlet property="txtCustID" destination="S6F-Cs-UhM" id="MaO-12-1LU"/>
                         <outlet property="txtCustName" destination="8ao-iA-H9p" id="ZVv-IO-g3k"/>
                         <outlet property="txtTotalUnit" destination="nWB-Lh-ptp" id="iBI-rI-gkX"/>
@@ -208,6 +220,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hsy-l9-B7b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="sl7-2x-2Ek" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2324" y="-4.0479760119940034"/>
         </scene>

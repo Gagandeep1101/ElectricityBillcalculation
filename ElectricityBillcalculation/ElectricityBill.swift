@@ -7,9 +7,11 @@
 //
 
 import Foundation
-enum Gender {
-    case MALE
-    case FEMALE
+enum Gender: String {
+
+    
+    case MALE  = "MALE"
+    case FEMALE = "FEMALE"
 }
 struct ElectricityBill
 {

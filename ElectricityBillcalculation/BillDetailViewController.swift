@@ -7,11 +7,16 @@
 //
 
 import UIKit
+protocol PassDataProtocol {
+    func setTotal(totalBill: Double)
+}
 
 class BillDetailViewController: UIViewController {
     
     @IBOutlet weak var lblTotalAmt: UILabel!
     var electricityBill: ElectricityBill?
+    var delegate: PassDataProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,7 +25,9 @@ class BillDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         if let bill = electricityBill
         {
+            print(bill.customerId!)
             print(bill.customerName!)
+            print(bill.gender!)
             calculateTotalBillAmount()
         }
     }
@@ -43,7 +50,9 @@ private func calculateTotalBillAmount()
     {
         totalBill = 262.5 + Double((electricityBill?.unitConsumed)!) * 2.25
     }
-    print(totalBill)
+    
+    delegate?.setTotal(totalBill: totalBill)
+    print("B = \(totalBill)")
     lblTotalAmt.text = String(totalBill)
     }
     /*

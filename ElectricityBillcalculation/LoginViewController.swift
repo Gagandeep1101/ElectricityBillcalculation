@@ -12,9 +12,21 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var txtUserId: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
-   
+    @IBOutlet weak var switchRememberme: UISwitch!
+    var userDefault: UserDefaults?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        userDefault = UserDefaults.standard
+        if let userId = userDefault?.value(forKey: "email")
+        {
+            if let userPassword = userDefault?.value(forKey: "password")
+            {
+                txtUserId.text = userId as? String
+                txtPassword.text = userPassword as? String
+            }
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -27,7 +39,15 @@ class LoginViewController: UIViewController {
     @IBAction func btnLoginClick(_ sender: UIButton) {
         if txtUserId.text == "admin@a.com" && txtPassword.text == "admin123"
         {
-             performSegue(withIdentifier: "showBillCalculationScreen", sender: self)
+            if switchRememberme.isOn
+            {
+                userDefault?.setValue(txtUserId.text, forKey: "email")
+                userDefault?.set(txtPassword.text, forKey: "password")
+            }else{
+                userDefault?.removeObject(forKey: "email")
+                userDefault?.removeObject(forKey: "password")
+            }
+            performSegue(withIdentifier: "showBillCalculationScreen", sender: self)
             print("Login Success", txtUserId.text!)
             
         }
@@ -37,6 +57,8 @@ class LoginViewController: UIViewController {
         
        
     }
+    
+    
     /*
      // MARK: - Navigation
 

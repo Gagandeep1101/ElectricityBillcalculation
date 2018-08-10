@@ -8,15 +8,17 @@
 
 import UIKit
 
-class ElectricityBillViewController: UIViewController {
-    
+class ElectricityBillViewController: UIViewController, PassDataProtocol {
+   
     var electricityBill: ElectricityBill?
 
     @IBOutlet weak var txtCustID: UITextField!
     @IBOutlet weak var txtCustName: UITextField!
     @IBOutlet weak var txtTotalUnit: UITextField!
     @IBOutlet weak var segGender: UISegmentedControl!
+    @IBOutlet weak var lblTotalBillAmount: UILabel!
     @IBOutlet weak var txtBdate: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,9 +48,19 @@ class ElectricityBillViewController: UIViewController {
         {
             //let destVC = segue.destination as! BillDetailViewController
             destVC.electricityBill = electricityBill
+            destVC.delegate = self
         }
         // Pass the selected object to the new view controller.
     }
  
-
+    func setTotal(totalBill: Double) {
+        print("A = \(totalBill)")
+        self.electricityBill?.totalBillAmount = totalBill
+        lblTotalBillAmount.isHidden = false
+        lblTotalBillAmount.text = "Total Bill : $\(totalBill)"
+        
+        
+    }
+    
+    
 }
