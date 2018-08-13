@@ -27,6 +27,7 @@ class BillDetailViewController: UIViewController {
         {
             print(bill.customerId!)
             print(bill.customerName!)
+            print(bill.customerEmail!)
             print(bill.gender!)
             calculateTotalBillAmount()
         }

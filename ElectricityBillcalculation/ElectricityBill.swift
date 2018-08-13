@@ -17,8 +17,9 @@ struct ElectricityBill
 {
     var customerId: Int?
     var customerName: String?
+    var customerEmail: String?
     var gender: Gender?
-    var billDate: Date?
+    var billDate: String?
     var unitConsumed: Int?
     var totalBillAmount: Double?
 }

@@ -42,7 +42,7 @@ class LoginViewController: UIViewController {
             if switchRememberme.isOn
             {
                 userDefault?.setValue(txtUserId.text, forKey: "email")
-                userDefault?.set(txtPassword.text, forKey: "password")
+                userDefault?.setValue(txtPassword.text, forKey: "password")
             }else{
                 userDefault?.removeObject(forKey: "email")
                 userDefault?.removeObject(forKey: "password")
